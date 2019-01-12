@@ -48,6 +48,12 @@ func (ma *MovingAverage) Add(val float64) {
 	}
 }
 
+func (ma *MovingAverage) AddSlice(vals []float64) {
+	for _, val := range vals {
+		ma.Add(val)
+	}
+}
+
 func New(window int) *MovingAverage {
 	return &MovingAverage{
 		Window : window,
